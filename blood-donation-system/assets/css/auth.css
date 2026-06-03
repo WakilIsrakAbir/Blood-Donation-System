@@ -1,0 +1,254 @@
+/* ============================================
+   Authentication Pages Styles
+   (Login, Register)
+   ============================================ */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-page::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(220, 20, 60, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.auth-page::after {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.auth-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 480px;
+    animation: fadeInUp 0.6s ease;
+}
+
+.auth-container.wide {
+    max-width: 580px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-decoration: none;
+    margin-bottom: var(--space-xl);
+}
+
+.auth-logo .brand-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.auth-logo span {
+    background: linear-gradient(135deg, var(--primary-light), #FF6B8A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: var(--space-sm);
+}
+
+.auth-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.auth-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.auth-card .form-group:last-of-type {
+    margin-bottom: var(--space-xl);
+}
+
+.auth-card .btn-primary {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1rem;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: var(--space-xl);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.auth-footer a {
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin: var(--space-xl) 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+/* Password visibility toggle */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .form-control {
+    padding-right: 45px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px;
+    transition: color var(--transition-fast);
+}
+
+.password-toggle:hover {
+    color: var(--text-primary);
+}
+
+/* ── Responsive ── */
+
+/* ── Tablet (768px) ── */
+@media (max-width: 768px) {
+    .auth-page {
+        padding: var(--space-xl) var(--space-md);
+        align-items: flex-start;
+        padding-top: var(--space-2xl);
+    }
+
+    .auth-container {
+        max-width: 100%;
+    }
+
+    .auth-container.wide {
+        max-width: 100%;
+    }
+
+    .auth-card {
+        padding: var(--space-xl);
+    }
+
+    .auth-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .auth-header p {
+        font-size: 0.85rem;
+    }
+
+    .auth-header {
+        margin-bottom: var(--space-xl);
+    }
+
+    .auth-logo {
+        font-size: 1.3rem;
+    }
+}
+
+/* ── Small Phones (480px) ── */
+@media (max-width: 480px) {
+    .auth-page {
+        padding: var(--space-lg) var(--space-sm);
+        padding-top: var(--space-xl);
+    }
+
+    .auth-card {
+        padding: var(--space-lg);
+        border-radius: var(--radius-md);
+    }
+
+    .auth-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .auth-header p {
+        font-size: 0.8rem;
+    }
+
+    .auth-logo {
+        font-size: 1.2rem;
+        margin-bottom: var(--space-md);
+    }
+
+    .auth-logo .brand-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+
+    .auth-card .btn-primary {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .auth-footer {
+        font-size: 0.8rem;
+    }
+
+    .auth-divider {
+        margin: var(--space-lg) 0;
+        font-size: 0.75rem;
+    }
+}
+
