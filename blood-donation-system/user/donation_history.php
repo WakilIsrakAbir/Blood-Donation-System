@@ -82,5 +82,4 @@ include __DIR__ . '/sidebar.php';
             </p>
         </div>
     <?php endif; ?>
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

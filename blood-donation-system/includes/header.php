@@ -35,10 +35,10 @@ $currentPage = basename($_SERVER['SCRIPT_NAME'], '.php');
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="<?php echo $basePath; ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo $basePath; ?>assets/css/style.css?v=<?php echo time(); ?>">
     <?php if (isset($extraCSS)): ?>
         <?php foreach ($extraCSS as $css): ?>
-            <link rel="stylesheet" href="<?php echo $basePath; ?>assets/css/<?php echo $css; ?>">
+            <link rel="stylesheet" href="<?php echo $basePath; ?>assets/css/<?php echo $css; ?>?v=<?php echo time(); ?>">
         <?php endforeach; ?>
     <?php endif; ?>
 </head>
@@ -58,9 +58,25 @@ $currentPage = basename($_SERVER['SCRIPT_NAME'], '.php');
             <li><a href="<?php echo $basePath; ?>search_donors.php" class="<?php echo $currentPage === 'search_donors' ? 'active' : ''; ?>">Find Donors</a></li>
             <li><a href="<?php echo $basePath; ?>about.php" class="<?php echo $currentPage === 'about' ? 'active' : ''; ?>">About</a></li>
             <li><a href="<?php echo $basePath; ?>contact.php" class="<?php echo $currentPage === 'contact' ? 'active' : ''; ?>">Contact</a></li>
+            
+            <li class="mobile-only-actions" style="margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                <div class="navbar-actions" style="display: flex; gap: var(--space-sm); flex-direction: column;">
+                    <?php if (isLoggedIn()): ?>
+                        <?php if (getUserRole() === 'admin'): ?>
+                            <a href="<?php echo $basePath; ?>admin/dashboard.php" class="btn btn-sm btn-secondary w-full text-center">📊 Dashboard</a>
+                        <?php else: ?>
+                            <a href="<?php echo $basePath; ?>user/dashboard.php" class="btn btn-sm btn-secondary w-full text-center">📊 Dashboard</a>
+                        <?php endif; ?>
+                        <a href="<?php echo $basePath; ?>logout.php" class="btn btn-sm btn-outline w-full text-center">Logout</a>
+                    <?php else: ?>
+                        <a href="<?php echo $basePath; ?>login.php" class="btn btn-sm btn-secondary w-full text-center">Login</a>
+                        <a href="<?php echo $basePath; ?>register.php" class="btn btn-sm btn-primary w-full text-center">Register</a>
+                    <?php endif; ?>
+                </div>
+            </li>
         </ul>
 
-        <div class="navbar-actions">
+        <div class="desktop-only-actions navbar-actions">
             <?php if (isLoggedIn()): ?>
                 <?php if (getUserRole() === 'admin'): ?>
                     <a href="<?php echo $basePath; ?>admin/dashboard.php" class="btn btn-sm btn-secondary">📊 Dashboard</a>

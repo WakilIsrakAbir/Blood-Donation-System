@@ -7,11 +7,16 @@
 ?>
 
 <?php if (isset($hideNavbar) && $hideNavbar): ?>
-    <!-- Dashboard Footer (inside dashboard-main) -->
+    <!-- Dashboard Footer -->
+    <div class="dashboard-content-spacer"></div>
     <footer class="dashboard-footer">
         <p>&copy; <?php echo date('Y'); ?> BloodConnect. All rights reserved. Built with ❤️ for saving lives.</p>
     </footer>
     </main>
+
+    <!-- Sidebar Toggle Button (mobile) -->
+    <button class="sidebar-toggle">☰</button>
+
     <!-- Close dashboard-layout -->
     </div>
 <?php else: ?>

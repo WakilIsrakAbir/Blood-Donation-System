@@ -21,7 +21,7 @@ $db = getDB();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         setFlash('error', 'Invalid form submission.');
-        redirect('manage_donations.php');
+        redirect('admin/manage_donations.php');
     }
 
     $donationId = (int) ($_POST['donation_id'] ?? 0);
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         setFlash('success', 'Donation marked as completed. Donor\'s last donation date has been updated.');
     }
 
-    redirect('manage_donations.php');
+    redirect('admin/manage_donations.php');
 }
 
 // Filter
@@ -160,5 +160,4 @@ include __DIR__ . '/sidebar.php';
             </table>
         </div>
     <?php endif; ?>
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

@@ -20,7 +20,7 @@ $db = getDB();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         setFlash('error', 'Invalid form submission.');
-        redirect('contact_messages.php');
+        redirect('admin/contact_messages.php');
     }
 
     $action = $_POST['action'] ?? '';
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         setFlash('success', 'Message deleted.');
     }
 
-    redirect('contact_messages.php');
+    redirect('admin/contact_messages.php');
 }
 
 $messages = $db->query("SELECT * FROM contact_messages ORDER BY is_read ASC, created_at DESC")->fetchAll();
@@ -96,5 +96,4 @@ include __DIR__ . '/sidebar.php';
         </div>
         <?php endforeach; ?>
     <?php endif; ?>
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

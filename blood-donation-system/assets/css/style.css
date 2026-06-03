@@ -244,6 +244,10 @@ p {
     gap: var(--space-sm);
 }
 
+.mobile-only-actions {
+    display: none;
+}
+
 /* Mobile Nav Toggle */
 .nav-toggle {
     display: none;
@@ -813,6 +817,10 @@ textarea.form-control {
 }
 
 /* Dashboard minimal footer */
+.dashboard-content-spacer {
+    flex: 1;
+}
+
 .dashboard-footer {
     text-align: center;
     padding: var(--space-xl) var(--space-lg);
@@ -1248,6 +1256,14 @@ textarea.form-control {
         border-left: 1px solid var(--border-color);
         z-index: 999;
         overflow-y: auto;
+    }
+
+    .desktop-only-actions {
+        display: none !important;
+    }
+
+    .mobile-only-actions {
+        display: block;
     }
 
     .navbar-links.active {

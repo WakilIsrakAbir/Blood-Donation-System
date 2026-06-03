@@ -114,6 +114,8 @@ include 'includes/header.php';
             </div>
         <?php endif; ?>
 
+        <?php echo displayFlashMessages(); ?>
+
         <div class="auth-card">
             <form method="POST" action="register.php" id="registerForm">
                 <?php echo csrfField(); ?>

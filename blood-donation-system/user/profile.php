@@ -26,7 +26,7 @@ $user = $stmt->fetch();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         setFlash('error', 'Invalid form submission.');
-        redirect('profile.php');
+        redirect('user/profile.php');
     }
 
     $action = $_POST['action'] ?? 'update_profile';
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             $_SESSION['user_name'] = $name;
             setFlash('success', 'Profile updated successfully!');
-            redirect('profile.php');
+            redirect('user/profile.php');
         } else {
             setFlash('error', implode(' ', $errors));
         }
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$hashed, $userId]);
             setFlash('success', 'Password changed successfully!');
         }
-        redirect('profile.php');
+        redirect('user/profile.php');
     }
 }
 
@@ -191,5 +191,4 @@ include __DIR__ . '/sidebar.php';
             </div>
         </div>
     </div>
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

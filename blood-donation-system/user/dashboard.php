@@ -123,7 +123,6 @@ include __DIR__ . '/sidebar.php';
         <?php endif; ?>
     </div>
 
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>
 

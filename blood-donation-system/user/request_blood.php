@@ -20,7 +20,7 @@ $old = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         setFlash('error', 'Invalid form submission.');
-        redirect('request_blood.php');
+        redirect('user/request_blood.php');
     }
 
     $patientName = sanitize($_POST['patient_name'] ?? '');
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([getUserId(), $patientName, $hospitalAddress, $requiredBloodGroup, $unitsNeeded, $dateNeeded, $urgency]);
 
         setFlash('success', 'Blood request submitted successfully! It will be visible once approved by admin.');
-        redirect('my_requests.php');
+        redirect('user/my_requests.php');
     } else {
         setFlash('error', implode(' ', $errors));
     }
@@ -120,5 +120,4 @@ include __DIR__ . '/sidebar.php';
             </div>
         </form>
     </div>
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

@@ -20,7 +20,7 @@ $db = getDB();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         setFlash('error', 'Invalid form submission.');
-        redirect('manage_requests.php');
+        redirect('admin/manage_requests.php');
     }
 
     $action = $_POST['action'] ?? '';
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         setFlash('success', 'Request rejected.');
     }
 
-    redirect('manage_requests.php');
+    redirect('admin/manage_requests.php');
 }
 
 // Filter
@@ -149,5 +149,4 @@ include __DIR__ . '/sidebar.php';
             </table>
         </div>
     <?php endif; ?>
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

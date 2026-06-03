@@ -20,7 +20,7 @@ $db = getDB();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         setFlash('error', 'Invalid form submission.');
-        redirect('manage_users.php');
+        redirect('admin/manage_users.php');
     }
 
     $action = $_POST['action'] ?? '';
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Don't allow admin to modify themselves
     if ($targetUserId === getUserId()) {
         setFlash('error', 'You cannot modify your own account from here.');
-        redirect('manage_users.php');
+        redirect('admin/manage_users.php');
     }
 
     if ($action === 'delete') {
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         setFlash('success', 'User unbanned successfully.');
     }
 
-    redirect('manage_users.php');
+    redirect('admin/manage_users.php');
 }
 
 // Search & fetch
@@ -163,5 +163,4 @@ include __DIR__ . '/sidebar.php';
             </table>
         </div>
     <?php endif; ?>
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

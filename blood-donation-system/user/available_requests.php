@@ -28,7 +28,7 @@ $eligibility = checkDonationEligibility($currentUser['last_donation_date']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['donate_request_id'])) {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         setFlash('error', 'Invalid form submission.');
-        redirect('available_requests.php');
+        redirect('user/available_requests.php');
     }
 
     $requestId = (int) $_POST['donate_request_id'];
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['donate_request_id']))
             setFlash('success', 'Thank you! Your donation pledge has been recorded. Admin will confirm upon completion.');
         }
     }
-    redirect('available_requests.php');
+    redirect('user/available_requests.php');
 }
 
 // Fetch all approved requests
@@ -142,5 +142,4 @@ include __DIR__ . '/sidebar.php';
         </div>
         <?php endforeach; ?>
     <?php endif; ?>
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

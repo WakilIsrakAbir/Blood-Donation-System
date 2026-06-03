@@ -79,6 +79,7 @@ include 'includes/header.php';
         </div>
 
         <div class="auth-card">
+            <?php echo displayFlashMessages(); ?>
             <form method="POST" action="login.php" id="loginForm">
                 <?php echo csrfField(); ?>
                 
@@ -106,8 +107,9 @@ include 'includes/header.php';
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: var(--space-sm);">Demo Accounts:</p>
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">
                     <strong>Admin:</strong> admin@blooddonation.com<br>
-                    <strong>User:</strong> rahim@example.com<br>
-                    <strong>Password:</strong> password123
+                    <strong>Password:</strong> admin123<br>
+                    <strong>User:</strong> wakilisrakabir@gmail.com<br>
+                    <strong>Password:</strong> 123456
                 </p>
             </div>
         </div>
