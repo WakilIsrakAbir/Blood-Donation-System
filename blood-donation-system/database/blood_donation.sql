@@ -3,8 +3,6 @@
 -- Stack: MySQL 5.7+
 -- ============================================
 
-CREATE DATABASE IF NOT EXISTS blood_donation_db;
-USE blood_donation_db;
 
 -- ============================================
 -- 1. USERS TABLE
